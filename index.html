@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sample route</title>
+	<link rel="import" href="bower_components/polymer/polymer.html">
+	<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="bower_components/more-routing/more-routing.html">
+<link rel="import" href="bower_components/more-routing/more-routing-config.html">
+<link rel="import" href="bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="bower_components/paper-menu/paper-menu.html">
+
+
+	<link rel="import" href="form-register.html">
+	<link rel="import" href="form-login.html">
+  <link rel="import" href="user-details.html">
+	 <script type="text/javascript" src="bower_components/webcomponentsjs/webcomponents.js" ></script>
+	
+</head>
+<body>
+<paper-toolbar >
+<more-route-selector>
+<paper-menu selected = 0>
+ <paper-item route="/">Register</paper-item>
+  <paper-item route="login">Login</paper-item>
+  <paper-item route="details">Details</paper-item>
+</paper-menu>
+</more-route-selector>
+</paper-toolbar>
+<more-routing-config driver="path"></more-routing-config>
+<more-route name="home" path="/"></more-route>
+<more-route name="login" path="/login"></more-route>
+<more-route name="details" path="/detai"></more-route>
+
+<more-route-selector selectedParams="{{params}}">
+  <iron-pages>
+    <section route="/">
+      Registration Page
+      <form-register></form-register>
+
+    </section>
+
+    <section route="login" >
+      Login Page
+     <form-login ></form-login>
+    </section>
+
+      <section route="details">
+      User Details Page
+     <user-details></user-details>
+    </section>
+
+  <!--   <section route="user">
+      <header>Heyo user {{params.userId}}!</header>
+      <template if="{{ route('user-bio').active }}">
+        All the details about {{params.userId}} that you didn't want to know...
+      </template>
+    </section> -->
+  </iron-pages>
+</more-route-selector>
+
+
+</script>
+
+</body>
+</html>
