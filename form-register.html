@@ -1,0 +1,59 @@
+<dom-module id="form-register">
+<template>
+<!-- <paper-material id="loginBox"> -->
+<paper-input name="name" value="{{name}}" label = "name"> </paper-input>
+	<paper-input name="email" value="{{email}}" label = "email" type="email"> </paper-input>
+	<paper-input name="phone" value="{{phone}}" label = "phone" type="number"> </paper-input>
+	<paper-input name="password" value="{{password}}" label = "password" type = "password"> </paper-input>
+	 <paper-button raised dialog-dismiss>Cancel</paper-button>
+	<paper-button raised type="submit" on-click="handleClick">Register</paper-button>
+	<!-- </paper-material> -->
+<iron-ajax
+id="ajax"
+method = "post"
+content-type="application/json"
+url = "/bears"
+handle-as = "json"
+ on-response = "registerStatus"
+></iron-ajax>
+</template>
+<script >
+	Polymer ({
+		is : "form-register",
+		properties :{
+			name : {
+				type : String,
+				value : null
+			},
+			email : {
+				type : String,
+				value : null
+			},
+			password : {
+				type : String,
+				value : null
+			},
+			phone : {
+				type : Number,
+				value : null
+			},
+		
+
+		},
+	/*	 handleClick: function(event) {
+     var dataList = '{"name":"'+this.name+'","email":"'+this.email+'","phone":'+this.phone+',"password":"'+this.password+'"}'; 
+			console.log(dataList);
+			this.$.ajax.body = dataList;
+		this.$.ajax.generateRequest();
+      },*/
+      registerStatus: function(responce){
+console.log(responce.detail);
+},
+	 handleClick: function() {
+  this.$.ajax.body = { "name": this.name, "email": this.email, "phone": this.phone, "password": this.password };
+ this.$.ajax.generateRequest();
+},
+	});
+
+</script>
+</dom-module>
