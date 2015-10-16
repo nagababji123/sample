@@ -1,13 +1,14 @@
 <dom-module  id="user-details">
 <template>
+<template is="dom-bind">
 <!-- <paper-material id="loginBox"> -->
-<paper-input value="{{data.name}}"></paper-input>
-<paper-input value="{{data.phone}}"></paper-input>
-<paper-input value="{{data.email}}"></paper-input>
-<paper-input value="{{data.password}}"></paper-input>
+<paper-input value="{{details.name}}"></paper-input>
+<paper-input value="{{details.phone}}"></paper-input>
+<paper-input value="{{details.email}}"></paper-input>
+<paper-input value="{{details.password}}"></paper-input>
 	
 	<!-- </paper-material> -->
-
+</template>
 </template>
 </dom-module>
 <script>
